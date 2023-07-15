@@ -1,3 +1,8 @@
-docker run postgres:9.3-alpine
+docker images
+docker container
 
+docker run postgres:9.3-alpine
 docker ps
+
+docker run postgres:10.5-alpine (beda versi)
+docker ps (cek image yang berjalan)
