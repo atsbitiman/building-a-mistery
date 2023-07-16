@@ -2,3 +2,11 @@
 docker run --name mysql_db -e MYSQL_ROOT_PASSWORD=(password) -d mysql:latest
 docker exec -it mysql_db bash -l
 mysql -u root -p
+
+// Mengecek server host 
+Cek IPAddress dan inputkan
+
+
+// Testing koneksi dengan phpmyadmin
+docker run --name phpmyadmin_db -d --link mysql_db:db -p 8081:80 phpmyadmin/phpmyadmin
+(jalankan di browser localhost:8081)
