@@ -1,8 +1,13 @@
 docker images
-docker container
+docker container -ls
 
 docker run postgres:9.3-alpine
 docker ps
 
 docker run postgres:10.5-alpine (beda versi)
 docker ps (cek image yang berjalan)
+
+// Menjalankan MySQL
+docker run --name mysql_db -e MYSQL_ROOT_PASSWORD=(password) -d mysql:latest
+docker exec -it mysql_db bash -l
+mysql -u root -p
