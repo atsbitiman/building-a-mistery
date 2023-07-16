@@ -1,1 +1,4 @@
-
+// Menjalankan MySQL di Docker
+docker run --name mysql_db -e MYSQL_ROOT_PASSWORD=(password) -d mysql:latest
+docker exec -it mysql_db bash -l
+mysql -u root -p
