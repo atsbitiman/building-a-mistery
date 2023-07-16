@@ -4,6 +4,7 @@ docker exec -it mysql_db bash -l
 mysql -u root -p
 
 // Mengecek server host 
+docker inspect mysql_db
 Cek IPAddress dan inputkan
 
 
