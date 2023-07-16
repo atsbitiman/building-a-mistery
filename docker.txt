@@ -1,13 +1,40 @@
-docker images
-docker container -ls
+* docker images
+* docker container ls (melihat container yang running)
+* docker container ls --all (melihat container yang aktif atau tidak aktif)
 
-docker run postgres:9.3-alpine
-docker ps
+-----------------------------------------OPERASI-----------------------------------------------
+* Membuat Container  
+  docker container create <image:tag> 
+    docker container create mongo:4.1
+  docker container create --name <nama_kontainer> <image:tag>
+    docker container create --name mongoserver1 mongo:4.1
+* Membuat Container dan membuka PORT Container
+    docker container create --name mongoserver1 -p 8080:27017 mongo:4.1
+*  Mengaktifkan Container 
+    docker container start <nama_kontainer>
+        docker container start mongoserver1
+*  Menghentikan aktifitas Container 
+    docker container stop <nama_container>
+      docker container stop mongoserver1
+*  Menghapus Container 
+      docker container rm <nama_kontainer>
+        docker container rm mongoserver1
+* Menghapus image
+    docker image rm <nama_image:tag> atau docker image rm <image_ID>
+        docker image rm mongo:4.1
+        docker image rm <image_ID>
 
-docker run postgres:10.5-alpine (beda versi)
-docker ps (cek image yang berjalan)
+-----------------------------------ARSITEKTUR DOCKER------------------------------------
+-----------------------------------DOCKER CLIENT------------------------------------
+docker build
+docker pull 
+docker run
 
-// Menjalankan MySQL
-docker run --name mysql_db -e MYSQL_ROOT_PASSWORD=(password) -d mysql:latest
-docker exec -it mysql_db bash -l
-mysql -u root -p
+-----------------------------------DOCKER HOST------------------------------------
+* Image (Hasil bundle dari aplikasi & Aplikasi yang siap dijalankan)
+* Container (Image yang kita running)
+
+-----------------------------------CONTAINER REGISTRY------------------------------------
+hub.docker.com 
+cloud.google.com/container-registry
+aws.amazon.com/id/ecr
