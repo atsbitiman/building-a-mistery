@@ -1,12 +1,19 @@
 // Menjalankan MySQL di Docker
-docker run --name mysql_db -e MYSQL_ROOT_PASSWORD=(password) -d mysql:latest
-docker exec -it mysql_db bash -l
-mysql -u root -p
+1. Mengambil images , setting port dan mengaktifkan container MySQL
+      docker run --name mysqlserver1 -p 8080:3306 -e MYSQL_ROOT_PASSWORD=<passwd> -d mysql
+2. Koneksikan lewat SQLWB
+
+// Alternatif lain
+1. Ambil image dan setting nama container
+      docker run --name mysqlserver1 -e MYSQL_ROOT_PASSWORD=<password> -d mysql:latest
+2. Eksekusi MySQL
+      docker exec -it mysqlserver bash -l
+3. Masukkan Password user
+      mysql -u root -p
 
 // Mengecek server host 
-docker inspect mysql_db
-Cek IPAddress dan inputkan
-
+docker inspect mysqlserver1
+<Cek IPAddress dan inputkan>
 
 // Testing koneksi dengan phpmyadmin
 docker run --name phpmyadmin_db -d --link mysql_db:db -p 8081:80 phpmyadmin/phpmyadmin
